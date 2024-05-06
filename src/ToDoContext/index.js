@@ -17,7 +17,7 @@ function ToDoProvider( { children } ) {
       const completados = listaToDos.filter((toDo) => !!toDo.completed).length //cantidad de ToDos completados (filtro)
       let fraseCounter = ""
         if (completados === totales){
-          fraseCounter = `No tienes To DO's pendientes`
+          fraseCounter = `No tienes To DO's para tu argumento de busqueda`
         } else {
           fraseCounter = `Has completado ${completados} de ${totales} tareas.`
         }

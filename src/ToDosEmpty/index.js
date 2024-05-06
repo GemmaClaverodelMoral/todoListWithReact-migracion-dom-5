@@ -8,7 +8,7 @@ function ToDosEmpty() {
         setIsVisible(true); // Cambiar a true cuando desees mostrar el mensaje
     }, []);
     return (
-       <p className={`p-mensaje ${isVisible ? 'mostrar' : ''}`}>Crea tu primer ToDo</p>
+       <p className={`p-mensaje ${isVisible ? 'mostrar' : ''}`}>Crea ToDo's con el boton azul</p>
     )
 }
 
