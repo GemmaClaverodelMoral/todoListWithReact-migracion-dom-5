@@ -6,7 +6,7 @@ Aplicacion Interactiva para Ingresar, eliminar, marcar tareas pendientes y ejecu
 <img src="https://github.com/GemmaClaverodelMoral/ToDos-List-with-React/assets/142899102/60525a84-3840-4e6f-ad99-90f8de93fe9b" width="50px"/>
 
 <div align = "center">  
-<img src="public\TODOs-vistas.jpg" width="400px"/>
+<img src="public\TODOs-vistas.png" width="800px"/>
 </div>
 
 Usando y provando con:
