@@ -2,18 +2,20 @@
  - 📖🗓️
 Lista de Tareas / TO DO's
 Aplicacion Interactiva para Ingresar, eliminar, marcar tareas pendientes y ejecutadas.
- 
-<img src="https://github.com/GemmaClaverodelMoral/ToDos-List-with-React/assets/142899102/60525a84-3840-4e6f-ad99-90f8de93fe9b" width="50px"/>
 
 <div align = "center">  
 <img src="public\TODOs-vistas.png" width="800px"/>
 </div>
+<div align = "center">  
+<img src="https://github.com/GemmaClaverodelMoral/ToDos-List-with-React/assets/142899102/60525a84-3840-4e6f-ad99-90f8de93fe9b" width="50px"/>
+</div>
+
 
 Usando y provando con:
  - React (Componentes y demas)
  - Persistencia de datos con LocalStorage.
  - Manejo de carga y error
- - Hooks: useState, useContext, use Effect
+ - Hooks: useState, useContext, useEffect
  - Modals
 
 
