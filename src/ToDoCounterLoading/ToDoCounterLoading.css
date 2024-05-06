@@ -1,0 +1,27 @@
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 29px; /* Ajusta la altura según el espacio dado a ToDoCounter*/
+  }
+  
+  .loading-spinner {
+    border: 8px solid rgba(0, 0, 0, 0.1);
+    border-left-color: gray;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    animation: spin 3s linear infinite; /* Animación de rotación */
+  }
+  
+  .loading-text {
+    margin-left: 16px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #61DAFA;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

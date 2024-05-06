@@ -1,0 +1,40 @@
+.Icon-container {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 48px;
+    width: 48px;
+    font-size: 24px;
+    font-weight: bold;
+    position: relative;
+}
+
+.Icon-container-check {
+    position: absolute;
+    left: 12px;
+    top: 50%; /* Centra verticalmente el icono */
+    transform: translateY(-50%); /* Ajusta la posición vertical */
+    color:darkgray;
+}
+
+.Icon-container-check--active {
+    color: #a0f905;
+}
+
+.Icon-container-delete {
+    position: absolute;
+    top: -24px;
+    right: 0;
+}
+
+.Icon-container-check:hover .Icon-SVG {
+    fill: #a0f905;
+}
+.Icon-container-delete:hover .Icon-SVG {
+    fill: red;
+}
+.Icon-SVG {
+    width: 24px;
+    height: 24px;
+}
