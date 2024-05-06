@@ -1,4 +1,4 @@
-# Repositorio base Proyecto React.js en Platzi - 
+# Repositorio base Proyecto React.js
 ## Imagen
 ## link a la pagina
 ## Aplicacion para Ingresar, eliminar, marcar tareas pendientes y ejecutadas 
