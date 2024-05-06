@@ -1,6 +1,7 @@
 .p-mensaje {
     display:flex;
     justify-content: center;
+    text-align: center;
     color: rgba(97,218,250, 0.5);
     font-size: 40px;
     font-family: 'Montserrat';
