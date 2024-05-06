@@ -1,6 +1,17 @@
-# Repositorio base del Curso de Introducción a React.js en Platzi
+# Repositorio base Proyecto React.js en Platzi - 
+## Imagen
+## link a la pagina
+## Aplicacion para Ingresar, eliminar, marcar tareas pendientes y ejecutadas 
 
-¡Hola, Platzinauta!
+Usando y provando con:
+ - React (Componentes y demas)
+ - LocalStorage
+ - Hooks
+ - Context
+
+
+### Para mi: (memoria)
+El deploy a gh-pages se debe hacer con npm run deploy
 
 En este repositorio encontrarás el código de todas las clases del [Curso de Introducción a React.js](https://platzi.com/reactjs). Para empezar solo debes clonar este repositorio (`git clone`), instalar sus dependencias (`npm i`) y ejecutar la aplicación (`npm start`).
 
