@@ -1,7 +1,10 @@
-# Repositorio base Proyecto React.js
-## Imagen
-## link a la pagina
-## Aplicacion para Ingresar, eliminar, marcar tareas pendientes y ejecutadas 
+## [TODO's List](https://gemmaclaverodelmoral.github.io/ToDos-List-with-React/) - Proyecto Introductorio a React.js
+ - 📖🗓️
+Lista de Tareas / TO DO's
+Aplicacion para Ingresar, eliminar, marcar tareas pendientes y ejecutadas.
+<div align = "center">  
+<img src="https://github.com/GemmaClaverodelMoral/ToDos-List-with-React/assets/142899102/60525a84-3840-4e6f-ad99-90f8de93fe9b" width="100px"/>
+</div>
 
 Usando y provando con:
  - React (Componentes y demas)
