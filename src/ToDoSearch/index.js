@@ -7,7 +7,7 @@ function ToDoSearch()
   const {
     toDoSearch,
     setToDoSearch,
-} = React.useContext(ToDoContext)
+  } = React.useContext(ToDoContext)
     return (
        <input 
           placeholder = "Buscar To DO" 
@@ -17,7 +17,7 @@ function ToDoSearch()
             setToDoSearch(event.target.value)
        }}/>
     )
-  }
+}
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export { ToDoSearch }
