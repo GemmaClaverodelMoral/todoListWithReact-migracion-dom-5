@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './Modal.css';
 
-function Modal({ children }) { //Que pueda teletransportar cualquier hijo que venga por dentro
+function Modal({ children }) { 
   return ReactDOM.createPortal(
     <div className="clase-modal">
       {children}

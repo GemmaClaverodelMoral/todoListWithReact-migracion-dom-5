@@ -1,24 +1,20 @@
 import React from "react";
 import "./ToDoForm.css";
-import { ToDoContext } from "../ToDoContext";
 
-function ToDoForm () {
-    const {
-        addToDo,
-        setOpenModal} = React.useContext(ToDoContext)
+function ToDoForm ( {addToDo, setOpenModal}) {
     const [newToDo, setNewToDo] = React.useState('')
 
-    const onSubmit = (event) => {
+    function onSubmit(event) { //     : se manda el newTodo a addToDo. Cerrar el form ?
         event.preventDefault()
         addToDo(newToDo)
         setOpenModal(false)
     }
 
-    const onCancel = () => {
+    function onCancel() { //click en boton cancelar :Cerrar el form
         setOpenModal(false)
     }
 
-    const onChange = (event) => {
+    function onChange(event) { //texto que cambia en textarea : Actualiza el valor del estado de nuevo todo
         setNewToDo(event.target.value)
     }
 

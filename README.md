@@ -17,6 +17,7 @@ Usando y provando con:
  - Manejo de carga y error
  - Hooks: useState, useContext, useEffect
  - Modals
+ - Optimizando patrones de Render - <></> - anidación desde App - 
 
 
 ### Para mi: (memoria)

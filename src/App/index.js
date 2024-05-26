@@ -1,14 +1,82 @@
 
 
 import React from 'react';
-import { AppUi } from './AppUi';
-import { ToDoProvider } from '../ToDoContext';
+import { ToDoItem } from '../ToDoItem';
+import { ToDoCounter } from '../ToDoCounter';
+import { ToDoSearch } from '../ToDoSearch';
+import { ToDoHeader} from '../ToDoHeader';
+import { ToDoList } from '../ToDoList';
+import { ToDosLoading } from '../ToDosLoading';
+import { ToDosError } from '../ToDosError';
+import { ToDosEmpty } from '../ToDosEmpty';
+import { ToDosEmptySearch } from '../ToDosEmptySearch';
+import { CreateToDoButton } from '../CreateToDoButton';
+import { Modal } from "../Modal";
+import { ToDoForm } from "../ToDoForm";
+import { useToDos } from "./useToDos";
+import { ChangeAlertWithStorageListener} from "../ChangeAlert"
 
 function App() {
+  const {
+    loading,
+    error,
+    listaFiltradaToDos,
+    setToDoCompleted,
+    setToDoDeleted,
+    openModal,
+    setOpenModal,
+    toDoSearch,
+    setToDoSearch,
+    fraseCounter,
+    totales,
+    addToDo,
+  } = useToDos();
+
   return ( 
-    <ToDoProvider>
-      <AppUi/>
-    </ToDoProvider>
+    <>
+      <ToDoHeader loading={loading}>
+          <ToDoCounter 
+              fraseCounter={fraseCounter}/>
+          <ToDoSearch 
+              toDoSearch={toDoSearch} 
+              setToDoSearch={setToDoSearch} />
+      </ToDoHeader>
+
+      <ToDoList
+          error= {error}
+          loading={loading}
+          listaFiltradaToDos={listaFiltradaToDos}
+          totalToDos= {totales}
+          toDoSearch= {toDoSearch}
+          onError=      { ()=><ToDosError /> }
+          onLoading=    { ()=><ToDosLoading /> }
+          onEmptyToDos= { ()=><ToDosEmpty /> }
+          onEmptySearch = { () => <ToDosEmptySearch toDoSearch={toDoSearch} /> }
+      >
+      {toDo => (<ToDoItem 
+                    key={toDo.text} 
+                    text={toDo.text}
+                    completed={toDo.completed}
+                    onCompleted={() => setToDoCompleted(toDo.text)}
+                    onDeleted={() => setToDoDeleted(toDo.text)}
+                />
+      )}
+      </ToDoList>
+
+      {!!openModal && ( 
+      <Modal>
+          <ToDoForm  
+            addToDo={addToDo}
+            setOpenModal={setOpenModal}
+          />
+      </Modal>
+      )}
+    
+      <CreateToDoButton
+          setOpenModal = { setOpenModal }
+      />
+      <ChangeAlertWithStorageListener />
+    </>
   )
 }
 export default App;

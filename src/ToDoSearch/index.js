@@ -1,21 +1,20 @@
 import React from 'react'
 import './ToDoSearch.css'
-import { ToDoContext } from '../ToDoContext';
 
-function ToDoSearch()
+function ToDoSearch({toDoSearch,setToDoSearch, loading})
 {
-  const {
-    toDoSearch,
-    setToDoSearch,
-  } = React.useContext(ToDoContext)
     return (
+ 
        <input 
-          placeholder = "Buscar To DO" 
+          id="todo-search"
+          placeholder = { loading ? '' : 'Buscar To DO' } // si esta cargando muestra cadena vacia.
           className = "ToDoSearch"
-          value = {toDoSearch} // El valor guardado en el State de React
-       onChange={(event) => {
+          disabled = { loading }
+          value = { toDoSearch } // El valor guardado en el State de React
+          onChange = { (event) => {
             setToDoSearch(event.target.value)
        }}/>
+     
     )
 }
 
