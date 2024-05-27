@@ -1,0 +1,53 @@
+.p-mensaje-recarga {
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente en el contenedor flex */
+    align-items: center; /* Centra el contenido verticalmente en el contenedor flex */
+    color: rgba(250, 125, 125, 0.5);
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+    opacity: 0; /* Inicialmente oculto */
+    transition: opacity 5s ease; /* Transición de 5 segundos */
+}
+
+.p-mensaje-recarga.mostrar {
+    opacity: 1; /* Visible cuando se añade la clase 'mostrar' */
+}
+
+.ChangeAlert-bg {
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:#1e1e1f50;
+    z-index:2
+}
+
+.ChangeAlert-container{
+    position:fixed;
+    bottom:-10px;
+    left:-10px;
+    right:-10px;
+    padding:34px;
+    background-color:#1e1e1f;
+    color:#f2f4f5;
+    z-index:2;
+    text-align:center;
+    font-size:20px
+}
+
+.ChangeAlert-container button{
+    margin-top:16px;
+    margin-bottom:16px;
+    background-color: rgba(250, 125, 125, 0.5);
+    width: 40%;
+    height: 30px;
+    border-radius: 20px;
+    border:none;
+    font-family: 'Montserrat', sans-serif;
+}
+.ChangeAlert-container button:hover{
+    background-color: rgba(250, 125, 125, 1);
+}

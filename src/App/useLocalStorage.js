@@ -4,39 +4,48 @@ function useLocalStorage(itemName,initialValue){
     const [item, setItem] = React.useState(initialValue)
     const [loading, setLoading] = React.useState(true) 
     const [error, setError] = React.useState(false) 
+    const [sincronizedItem, setSincronizedItem] = React.useState(true)
   
-      React.useEffect( () => {  // Informacion guardada en el LocalStorage ? No: Crearla en vacio. SI: recojerla en parceItem despues de parsearla con JSON  
-        setTimeout( () => {
-          try {
-            let localStorageItem = localStorage.getItem(itemName)
-            let parsedItem
+    React.useEffect( () => {  // Informacion guardada en el LocalStorage ? No: Crearla en vacio. SI: recojerla en parceItem despues de parsearla con JSON. Cada vez que requiera sincronizacion
+      setTimeout( () => {
+        try {
+          let localStorageItem = localStorage.getItem(itemName)
+          let parsedItem
 
-            if (!localStorageItem) {
-            localStorage.setItem(itemName, JSON.stringify(initialValue))
-            parsedItem = initialValue
-            } else {
-              parsedItem = JSON.parse(localStorageItem)
-              setItem(parsedItem)
-            } 
-            setLoading(false)
+          if (!localStorageItem) {
+          localStorage.setItem(itemName, JSON.stringify(initialValue))
+          parsedItem = initialValue
+          } else {
+            parsedItem = JSON.parse(localStorageItem)
+            setItem(parsedItem)
           } 
-          catch(error) {
-              setLoading(false)
-              setError(true)
-          }
-        }, 3000)
-      }, [])
+          setLoading(false)
+          setSincronizedItem(true)
+        } 
+        catch(error) {
+            setLoading(false)
+            setError(true)
+        }
+      }, 3000)
+      
+    }, [sincronizedItem])
     
-    
-    const saveItem = (itemActualizado) => {
+    const saveItem = (itemActualizado) => { //Agrega nuevo item a Local Storage
       localStorage.setItem(itemName, JSON.stringify(itemActualizado))  
       setItem(itemActualizado)
     }
+
+    function sincronizeItem(){ //recarga todo y avisa que ya se hizo
+      setLoading(true)
+      setSincronizedItem(false)      
+    }
+    
     return {
       item, 
       saveItem,
       loading,
       error,
+      sincronizeItem,
     }
   }
   export { useLocalStorage }

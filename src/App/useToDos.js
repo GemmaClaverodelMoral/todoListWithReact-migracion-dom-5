@@ -6,6 +6,7 @@ function useToDos( props ) {
     const {
         item: listaToDos, //se renombra
         saveItem: saveToDos,
+        sincronizeItem: sincronizeToDos,
         loading,
         error,
     } = useLocalStorage('ToDos_V1', [])
@@ -46,7 +47,7 @@ function useToDos( props ) {
         saveToDos(listaToDosActualizada)
     }
 
-    function addToDo (text) {
+    function addToDo (text) { // agrega nuevo ToDo a la lista de Todos
         const listaToDosActualizada = [...listaToDos]
         listaToDosActualizada.push({
           text, 
@@ -68,6 +69,7 @@ function useToDos( props ) {
             openModal,
             setOpenModal,
             addToDo,
+            sincronizeToDos,
     }
 }
  

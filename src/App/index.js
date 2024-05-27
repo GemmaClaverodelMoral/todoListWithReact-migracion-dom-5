@@ -14,7 +14,7 @@ import { CreateToDoButton } from '../CreateToDoButton';
 import { Modal } from "../Modal";
 import { ToDoForm } from "../ToDoForm";
 import { useToDos } from "./useToDos";
-import { ChangeAlertWithStorageListener} from "../ChangeAlert"
+import { ChangeAlert} from "../ChangeAlert"
 
 function App() {
   const {
@@ -30,39 +30,43 @@ function App() {
     fraseCounter,
     totales,
     addToDo,
+    sincronizeToDos,
   } = useToDos();
 
   return ( 
     <>
-      <ToDoHeader loading={loading}>
+      {/*Counter & Search Input*/}
+      <ToDoHeader loading={loading}> 
           <ToDoCounter 
               fraseCounter={fraseCounter}/>
           <ToDoSearch 
               toDoSearch={toDoSearch} 
               setToDoSearch={setToDoSearch} />
       </ToDoHeader>
-
-      <ToDoList
-          error= {error}
-          loading={loading}
-          listaFiltradaToDos={listaFiltradaToDos}
-          totalToDos= {totales}
-          toDoSearch= {toDoSearch}
-          onError=      { ()=><ToDosError /> }
-          onLoading=    { ()=><ToDosLoading /> }
-          onEmptyToDos= { ()=><ToDosEmpty /> }
+      
+      {/*lista de ToDo's y todas sus exepciones*/}
+      <ToDoList 
+          error=              {error}
+          loading=            {loading}
+          listaFiltradaToDos= {listaFiltradaToDos}
+          totalToDos=         {totales}
+          toDoSearch=         {toDoSearch}
+          onError=        { () => <ToDosError /> }
+          onLoading=      { () => <ToDosLoading /> }
+          onEmptyToDos=   { () => <ToDosEmpty /> }
           onEmptySearch = { () => <ToDosEmptySearch toDoSearch={toDoSearch} /> }
-      >
-      {toDo => (<ToDoItem 
-                    key={toDo.text} 
-                    text={toDo.text}
-                    completed={toDo.completed}
-                    onCompleted={() => setToDoCompleted(toDo.text)}
-                    onDeleted={() => setToDoDeleted(toDo.text)}
-                />
-      )}
+      > 
+          {toDo => (<ToDoItem 
+                        key={toDo.text} 
+                        text={toDo.text}
+                        completed={toDo.completed}
+                        onCompleted={() => setToDoCompleted(toDo.text)}
+                        onDeleted={() => setToDoDeleted(toDo.text)}
+                    />
+          )}
       </ToDoList>
 
+      {/* Nuevo ToDo: Formulario emergente para nueva tarea */} 
       {!!openModal && ( 
       <Modal>
           <ToDoForm  
@@ -71,11 +75,14 @@ function App() {
           />
       </Modal>
       )}
-    
+      {/* Boton para activar Crear ToDo's */}
       <CreateToDoButton
           setOpenModal = { setOpenModal }
       />
-      <ChangeAlertWithStorageListener />
+      {/* Alerta emergente en caso de cambio en base de datos en otra pantalla*/}
+      <ChangeAlert 
+          sincronize={sincronizeToDos}  
+      />
     </>
   )
 }
