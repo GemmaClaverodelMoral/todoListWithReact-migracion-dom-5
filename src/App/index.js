@@ -21,7 +21,7 @@ function App() {
     loading,
     error,
     listaFiltradaToDos,
-    setToDoCompleted,
+    toggleToDoCompleted,
     setToDoDeleted,
     openModal,
     setOpenModal,
@@ -60,7 +60,7 @@ function App() {
                         key={toDo.text} 
                         text={toDo.text}
                         completed={toDo.completed}
-                        onCompleted={() => setToDoCompleted(toDo.text)}
+                        onCompleted={() => toggleToDoCompleted(toDo.text)}
                         onDeleted={() => setToDoDeleted(toDo.text)}
                     />
           )}

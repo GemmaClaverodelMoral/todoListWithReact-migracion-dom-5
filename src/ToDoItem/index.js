@@ -7,10 +7,11 @@ function ToDoItem(props) {
         <li className="ToDoItem">
             <CompleteIcon 
                 completed = {props.completed} 
-                onCompleted = {props.onCompleted}
+                onToggleComplete = {props.onCompleted}
             />
             <p 
                 className={`ToDoItem-p ${props.completed &&"ToDoItem-p--complete"}`}>{props.text}
+                
             </p>
             <DeleteIcon 
                 onDeleted = {props.onDeleted}

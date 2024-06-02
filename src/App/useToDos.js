@@ -33,10 +33,10 @@ function useToDos( props ) {
         }
     )
     
-    function setToDoCompleted(text) { //Actualiza el estado con la lista actualizada con el Item que se completo  
+    const toggleToDoCompleted = (text) => {//Actualiza el estado con la lista actualizada con el Item que se completo  
         const listaToDosActualizada = [...listaToDos]
         const index = listaToDosActualizada.findIndex( (toDo) => toDo.text === text)
-        listaToDosActualizada[index].completed = true
+        listaToDosActualizada[index].completed =  !listaToDosActualizada[index].completed;
         saveToDos(listaToDosActualizada)
     }
 
@@ -51,8 +51,8 @@ function useToDos( props ) {
         const listaToDosActualizada = [...listaToDos]
         listaToDosActualizada.push({
           text, 
-          completed: false}
-        ) 
+          completed: false
+        }) 
         saveToDos(listaToDosActualizada)
     }
 
@@ -64,7 +64,7 @@ function useToDos( props ) {
             fraseCounter,
             totales,
             listaFiltradaToDos,
-            setToDoCompleted,
+            toggleToDoCompleted,
             setToDoDeleted,
             openModal,
             setOpenModal,
