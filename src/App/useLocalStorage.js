@@ -38,7 +38,7 @@ function useLocalStorage(itemName,initialValue){ //itemName = 'ToDos_V1', initia
           onError(error)
       }
     }, 3000)
-  }, [sincronizedItem])
+  }, [sincronizeItem])
 
   function saveItem(newItem) { //Agrega nuevo item a Local Storage
     try {
