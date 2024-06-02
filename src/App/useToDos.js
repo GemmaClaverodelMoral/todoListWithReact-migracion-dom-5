@@ -55,21 +55,28 @@ function useToDos( props ) {
         }) 
         saveToDos(listaToDosActualizada)
     }
+    const state = { // el orden es importante. Debe ser el mismo en los componentes que llaman a este
+      error,
+      loading,
+      listaFiltradaToDos,
+      totales,
+      openModal,
+      fraseCounter,
+      toDoSearch,
+    }
+
+    const stateUpdaters = {
+      setOpenModal,
+      addToDo,
+      setToDoDeleted,
+      toggleToDoCompleted,
+      setToDoSearch,
+      sincronizeToDos,
+    }
 
     return {
-            loading,
-            error,
-            toDoSearch,
-            setToDoSearch,
-            fraseCounter,
-            totales,
-            listaFiltradaToDos,
-            toggleToDoCompleted,
-            setToDoDeleted,
-            openModal,
-            setOpenModal,
-            addToDo,
-            sincronizeToDos,
+      state,
+      stateUpdaters,        
     }
 }
  

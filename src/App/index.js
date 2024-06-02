@@ -17,21 +17,26 @@ import { useToDos } from "./useToDos";
 import { ChangeAlert} from "../ChangeAlert"
 
 function App() {
-  const {
-    loading,
+  const { state, stateUpdaters} = useToDos();
+
+  const { //desestructurar state
     error,
+    loading,
     listaFiltradaToDos,
-    toggleToDoCompleted,
-    setToDoDeleted,
-    openModal,
-    setOpenModal,
-    toDoSearch,
-    setToDoSearch,
-    fraseCounter,
     totales,
+    openModal,
+    fraseCounter,
+    toDoSearch,
+  } = state;
+
+  const { //desestructurar los updaters del state
+    setOpenModal,
     addToDo,
+    setToDoDeleted,
+    toggleToDoCompleted,
+    setToDoSearch,
     sincronizeToDos,
-  } = useToDos();
+  } = stateUpdaters;
 
   return ( 
     <>
