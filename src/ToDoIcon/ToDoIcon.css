@@ -9,7 +9,6 @@
     font-weight: bold;
     position: relative;
 }
-
 .Icon-container-check {
     position: absolute;
     left: 12px;
@@ -17,17 +16,14 @@
     transform: translateY(-50%); /* Ajusta la posición vertical */
     color:darkgray;
 }
-
 .Icon-container-check--active {
     color: #a0f905;
 }
-
 .Icon-container-delete {
     position: absolute;
     top: -24px;
     right: 0;
 }
-
 .Icon-container-check:hover .Icon-SVG {
     fill: #a0f905;
 }

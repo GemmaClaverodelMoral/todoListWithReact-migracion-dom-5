@@ -1,4 +1,3 @@
-
 .ToDoItem {
     background-color: #fafafa;
     position: relative;
@@ -21,4 +20,45 @@
     text-decoration: line-through;
     color:darkgray;
     font-weight: 400;
+}
+
+.Icon-container {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 48px;
+    width: 48px;
+    font-size: 24px;
+    font-weight: bold;
+    position: relative;
+}
+
+.Icon-container-check {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: darkgray;
+}
+
+.Icon-container-delete {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    color: darkgray;
+}
+
+.Icon-container-check:hover .Icon-SVG {
+    fill: #a0f905 !important;
+}
+
+.Icon-container-delete:hover .Icon-SVG {
+    fill: red !important;
+}
+
+.Icon-SVG {
+    width: 24px;
+    height: 24px;
 }

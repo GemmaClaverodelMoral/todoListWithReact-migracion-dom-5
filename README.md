@@ -36,5 +36,8 @@ Ejemplo `npx create-react-app createst`
 Luego: `cd createst` para entrar al directorio del proyecto
 Luego: `npm start` parainicializar el proyecto y poder ir viendo los cambios 
 en el local host: http://localhost:3000/
+Para subir la aplicacion a github:
+'npm build'
+'npm run deploy'
 
 
