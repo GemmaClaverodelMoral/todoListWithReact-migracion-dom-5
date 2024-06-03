@@ -21,7 +21,7 @@
 }
 .Icon-container-delete {
     position: absolute;
-    top: -24px;
+    top: 5%;
     right: 0;
 }
 .Icon-container-check:hover .Icon-SVG {
