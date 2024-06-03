@@ -1,4 +1,4 @@
-## [TODO's List](https://gemmaclaverodelmoral.github.io/ToDos-List-with-React/) - Proyecto Introductorio a React.js
+## [TODO's List](https://gemmaclaverodelmoral.github.io/ToDos-List-with-React/) - Proyecto Introductorio a React.js con manejo de estados con React.Reducer
  - 📖🗓️
 Lista de Tareas / TO DO's
 Aplicacion Interactiva para Ingresar, eliminar, marcar tareas pendientes y ejecutadas.
@@ -15,8 +15,8 @@ Usando y provando con:
  - React (Componentes y demas)
  - Persistencia de datos con LocalStorage.
  - Manejo de carga y error
- - Hooks: useState, useContext, useEffect
- - Modals
+ - Hooks: useState, useContext, useEffect, useReducer
+ - Modals - formulario
  - Optimizando patrones de Render - <></> - anidación desde App - 
 
 
