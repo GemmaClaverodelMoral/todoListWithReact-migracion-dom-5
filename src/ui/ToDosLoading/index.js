@@ -5,8 +5,10 @@ const ToDosLoading = () => {
   return (
     <div className="ToDosLoading-container">
       <span className="ToDosLoading-completeIcon"></span>
-      <p className="ToDosLoading-text"></p>
+      <span className="ToDosLoading-editIcon"></span>
       <span className="ToDosLoading-deleteIcon"></span>
+      <p className="ToDosLoading-text"></p>
+      
     </div>
   );
 }

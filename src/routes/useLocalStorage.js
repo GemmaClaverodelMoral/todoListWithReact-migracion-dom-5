@@ -1,6 +1,6 @@
 import React from "react"
 
-function useLocalStorage(itemName,initialValue){ //itemName = 'ToDos_V1', initialValue
+function useLocalStorage(itemName,initialValue){ //itemName = 'ToDos_V2', initialValue
   const [state, dispatch] = React.useReducer(reducer,initialState({ initialValue }))
 
   const { // Destructuracion del state

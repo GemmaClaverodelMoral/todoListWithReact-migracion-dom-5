@@ -3,6 +3,7 @@ form {
     width: 90%;
     max-width: 250px;
     background: #fafafa;
+    margin: 10% auto; 
     padding: 24px 48px;
     display:flex;
     justify-content: center;

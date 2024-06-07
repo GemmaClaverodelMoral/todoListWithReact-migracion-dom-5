@@ -12,53 +12,61 @@
 .Icon-container-check {
     position: absolute;
     left: 12px;
-    top: 50%; /* Centra verticalmente el icono */
-    transform: translateY(-50%); /* Ajusta la posición vertical */
-    color:darkgray;
+    fill:gray;
 }
-.Icon-container-check--active {
-    color: #a0f905;
+.Icon-container-edit {
+    position: absolute;
+    top: -24px;
+    right: 50px;
+    fill:gray;
 }
 .Icon-container-delete {
     position: absolute;
-    top: 5%;
+    top: -24px;
     right: 0;
+    fill:gray;
 }
-.Icon-container-check:hover .Icon-SVG {
-    fill: #a0f905;
-}
-.Icon-container-delete:hover .Icon-SVG {
-    fill: red;
+.Icon-container-check--active {
+    color: #a0f905 
 }
 .Icon-SVG {
     width: 24px;
     height: 24px;
+    transition: fill .25s;
 }
-
-
-/* ToDoIcon.css */
-.ToDoSearch-container {
+.Icon-container-check:hover .Icon-SVG {
+    fill: #a0f905 !important;
+}
+.Icon-container-edit:hover .Icon-SVG {
+    fill: #61DAFA !important;
+}
+.Icon-container-delete:hover .Icon-SVG {
+    fill: red !important;
+}
+.ToDoSearch-container { /* ToDoIcon.css La Lupa*/
     position: relative;
     width: 100%;
   }
-  
 .ToDoSearch {
     width: 100%;
     padding: 10px 10px 10px 40px; /* Ajusta el padding para dejar espacio al ícono */
-    border: 1px solid #ccc; /* Bordes del input */
+    border: 1px solid gray; /* Bordes del input */
     border-radius: 4px; /* Bordes redondeados */
 }
-
 .Search-icon-container {
 position: absolute;
 top: 50%;
-left: 95%;
+left: 5%;
 transform: translateY(-50%);
-pointer-events: none; /* Para que el ícono no interfiera con el input */
-}
 
+}
 .Search-icon {
 width: 40px;
 height: 40px;
 fill: gray; /* Color del ícono */
+transition: fill 1s;
+}
+.Search-icon-container:hover .Search-icon{
+    fill: #61DAFA !important;
+    filter: drop-shadow(0 0 5px #61DAFA);
 }

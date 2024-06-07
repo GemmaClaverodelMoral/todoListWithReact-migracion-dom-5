@@ -18,7 +18,8 @@
 }
 
 .ToDosLoading-completeIcon,
-.ToDosLoading-deleteIcon {
+.ToDosLoading-deleteIcon,
+.ToDosLoading-editIcon {
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -36,14 +37,20 @@
   top: -24px;
   right: 0;
 }
+.ToDosLoading-editIcon {
+  position: absolute;
+  top: -24px;
+  right: 55px;
+}
 
 
 .ToDosLoading-container,
 .ToDosLoading-completeIcon,
-.ToDosLoading-deleteIcon {
-  background: linear-gradient(90deg, rgba(250,250,250,1), rgb(200, 199, 199));
+.ToDosLoading-deleteIcon,
+.ToDosLoading-editIcon {
+  background: linear-gradient(90deg, rgba(250,250,250,1), darkgray);
   background-size: 400% 400%;
-  animation: loadingAnimation 3s ease-in-out infinite;
+  animation: loadingAnimation 2s ease-in-out infinite;
 }
 
 @keyframes loadingAnimation {

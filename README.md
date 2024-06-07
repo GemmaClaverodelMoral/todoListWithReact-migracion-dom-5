@@ -18,6 +18,9 @@ Usando y provando con:
  - Hooks: useState, useContext, useEffect, useReducer
  - Modals - formulario
  - Optimizando patrones de Render - <></> - anidación desde App - 
+ - Quitamos los portales y modales y usamos React.routes. (`npm i -S react-router-dom@6`)
+ - Creamos una nueva ruta para editar ToDo's
+ - Incluimos Id a los ToDo's para enrutar con los id's
 
 
 ### Para mi: (memoria)
@@ -39,5 +42,6 @@ en el local host: http://localhost:3000/
 Para subir la aplicacion a github:
 'npm build'
 'npm run deploy'
+
 
 

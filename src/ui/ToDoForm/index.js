@@ -1,31 +1,35 @@
 import React from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./ToDoForm.css";
 
-function ToDoForm ( {addToDo, setOpenModal}) {
-    const [newToDo, setNewToDo] = React.useState('')
+function ToDoForm ( props ) {
+    const navigate = useNavigate()
+    const [toDoText, setToDoText] = React.useState(props.previousToDoText)
+   
 
-    function onSubmit(event) { //     : se manda el newTodo a addToDo. Cerrar el form ?
+    function onSubmit(event) { //     : se manda el newTodo a addToDo.
         event.preventDefault()
-        addToDo(newToDo)
-        setOpenModal(false)
+        props.submitEvent(toDoText)
+        navigate('/')
     }
 
     function onCancel() { //click en boton cancelar :Cerrar el form
-        setOpenModal(false)
+        navigate('/')
     }
 
     function onChange(event) { //texto que cambia en textarea : Actualiza el valor del estado de nuevo todo
-        setNewToDo(event.target.value)
+        setToDoText(event.target.value)
     }
 
     return (
+        
         <form onSubmit={ onSubmit }
         >
-            <label className="todoform-label">Escribe tu nuevo To DO</label>
+            <label className="todoform-label">{props.formLabel}</label>
             <textarea 
-                placeholder="Descripción de la tarea ToDo a realizar"
-                value={ newToDo }
+                value={ toDoText }
                 onChange={ onChange } 
+                placeholder= "Descripción del ToDo"
             />
             <div className="todoform-button-container">
                 <button 
@@ -37,8 +41,7 @@ function ToDoForm ( {addToDo, setOpenModal}) {
                 <button 
                     type= "submit" 
                     className="todoform-button todoform-button--add"
-                    onClick={ onSubmit }
-                    >Añadir
+                    >{props.formButtonText}
                 </button>
             </div>
 
@@ -46,4 +49,4 @@ function ToDoForm ( {addToDo, setOpenModal}) {
     )
 }
 
-export {ToDoForm}
+export { ToDoForm }
