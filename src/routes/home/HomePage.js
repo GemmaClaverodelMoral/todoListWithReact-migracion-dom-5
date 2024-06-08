@@ -1,6 +1,7 @@
-import { React, 
-         useEffect }   from 'react'
-import { useNavigate, useLocation }      from 'react-router-dom'
+import React, 
+       { useEffect }        from 'react'
+import { useLocation, 
+         useHistory }       from 'react-router-dom'
 import { useToDos }         from '../useToDos'
 import { ToDoItem }         from '../../ui/ToDoItem'
 import { ToDoCounter }      from '../../ui/ToDoCounter'
@@ -15,7 +16,7 @@ import { CreateToDoButton } from '../../ui/CreateToDoButton'
 import { ChangeAlert }      from '../../ui/ChangeAlert'
 
 function HomePage() {
-  const navigate = useNavigate()
+  const history = useHistory()
   const location = useLocation();
 
   const { 
@@ -49,7 +50,7 @@ function HomePage() {
 
   function handleSearchChange(searchText){
     setToDoSearch(searchText)
-    navigate(`/?search=${searchText}`)
+    history.push(`/?search=${searchText}`)
   }
 
   return ( 
@@ -83,12 +84,12 @@ function HomePage() {
                         completed={toDo.completed}
                         onComplete={() => toggleToDoCompleted(toDo.id)}
                         onDelete={() => deleteToDo(toDo.id)}
-                        onEdit={() => navigate(`/edit/${toDo.id}`, {state:  toDo.text })}
+                        onEdit={() => history.push(`/edit/${toDo.id}?text=${toDo.text}`)}
                     />
           )}
       </ToDoList>
       <CreateToDoButton
-          onClick = {() => navigate('/new')}
+          onClick = {() => history.push('/new')}
       />
       
       {/* Alerta emergente en caso de cambio en base de datos en otra pantalla*/}

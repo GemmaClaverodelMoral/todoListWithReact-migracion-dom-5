@@ -1,8 +1,8 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-import { ToDoForm} from '../../ui/ToDoForm'
+import { useParams,
+    useLocation }   from "react-router-dom";
+import { ToDoForm}  from '../../ui/ToDoForm'
 import { useToDos } from "../useToDos";
-import { useLocation } from "react-router-dom";
 
 function EditToDoPage() {
     let { id }  = useParams();
@@ -17,13 +17,15 @@ function EditToDoPage() {
     // se carga del LocalStorage esperando(simulando) el tiempo de carga: loading
     // Si se accede desde navigate de homepage, se obtiene el texto del state de navigate
     const location = useLocation();
+
     let previousText;
-    if (location.state) {
-        previousText = location.state;
+    if (location.search) {
+        const params = new URLSearchParams(location.search)
+        previousText  = params.get('text');
     } else if (loading) {
         return <p>Cargando...</p>
     } else {
-        const toDo = getToDo(id);
+        const toDo = getToDo(Number(id));
         previousText = toDo.text;
     }
 

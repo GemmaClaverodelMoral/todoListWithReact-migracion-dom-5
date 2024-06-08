@@ -1,20 +1,20 @@
 import React from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./ToDoForm.css";
 
 function ToDoForm ( props ) {
-    const navigate = useNavigate()
+    const history = useHistory()
     const [toDoText, setToDoText] = React.useState(props.previousToDoText)
    
 
     function onSubmit(event) { //     : se manda el newTodo a addToDo.
         event.preventDefault()
         props.submitEvent(toDoText)
-        navigate('/')
+        history.push('/')
     }
 
     function onCancel() { //click en boton cancelar :Cerrar el form
-        navigate('/')
+        history.push('/')
     }
 
     function onChange(event) { //texto que cambia en textarea : Actualiza el valor del estado de nuevo todo

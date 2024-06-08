@@ -1,7 +1,7 @@
 ## [TODO's List](https://gemmaclaverodelmoral.github.io/ToDos-List-with-React/) - Proyecto Introductorio a React.js con manejo de estados con React.Reducer
  - 📖🗓️
-Lista de Tareas / TO DO's
-Aplicacion Interactiva para Ingresar, eliminar, marcar tareas pendientes y ejecutadas.
+Ejercicio de:
+MIGRACION DE DEPENDENCIAS de React-Router-DOM-6 a DOM-5
 
 <div align = "center">  
 <img src="public\TODOs-vistas.png" width="800px"/>
@@ -10,38 +10,36 @@ Aplicacion Interactiva para Ingresar, eliminar, marcar tareas pendientes y ejecu
 <img src="https://github.com/GemmaClaverodelMoral/ToDos-List-with-React/assets/142899102/60525a84-3840-4e6f-ad99-90f8de93fe9b" width="50px"/>
 </div>
 
+Se vuelve a hacer toda la aplicacion pero con React-Router-DOM-5
+Pasos para el cambio:
+- ejecutar: npm uninstall react-router-dom
+- ejecutar: npm install react-router-dom@5
+- Reemplazar routes por switch
+- Reemplazar 
+      <Route path="/xxx" element={< xxx />} /> 
+  por <Route path="/xxx" component={ xxx } />
+- Reemplazar 
+      <Route path="/xxx" element={<Navigate to="/xxx" />} />
+  por <Redirect from="/xxx" to="/xxx" /> 
+- Reemplazar 
+      const navigate = useNavigate()
+  por const history = useHistory();
+- Reemplazar 
+      import { Routes, Navigate, useNavigate } from 'react-router-dom';
+  por import { Switch, Redirect, useHistory }  from 'react-router-dom';
+- Reemplazar 
+      navigate('/xxx');
+  por history.push('/xxx');   
+- Remplazar:
+      onEdit={() => history.push(`/edit/${toDo.id}`, {state:  toDo.text })
+  por onEdit={() => history.push(`/edit/${toDo.id}?text=${toDo.text}`)}
+  en el componente hijo: 
+  - import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+  - const history = useHistory()
+- Los Remplazos que más me sacaron la piedrunchis..., el tiempo y mas me hicieron entender la problematica de migracion:
 
-Usando y provando con:
- - React (Componentes y demas)
- - Persistencia de datos con LocalStorage.
- - Manejo de carga y error
- - Hooks: useState, useContext, useEffect, useReducer
- - Modals - formulario
- - Optimizando patrones de Render - <></> - anidación desde App - 
- - Quitamos los portales y modales y usamos React.routes. (`npm i -S react-router-dom@6`)
- - Creamos una nueva ruta para editar ToDo's
- - Incluimos Id a los ToDo's para enrutar con los id's
 
 
-### Para mi: (memoria)
-
-Ejecutar la aplicación desde directorio local del proyecto con (`npm start`).
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-Construir un ejecutable con (`npm run build`)
-El deploy a gh-pages se debe hacer con (`npm run deploy`)
-
-## ¿COMO CREAR UN PROYECTO REACT DESDE CERO?
-En la linea de comandos desde carpeta 'madre' escribimos: `npx create-react-app <nombre>`: 
-Ejemplo `npx create-react-app createst`
-Luego: `cd createst` para entrar al directorio del proyecto
-Luego: `npm start` parainicializar el proyecto y poder ir viendo los cambios 
-en el local host: http://localhost:3000/
-Para subir la aplicacion a github:
-'npm build'
-'npm run deploy'
 
 
 
