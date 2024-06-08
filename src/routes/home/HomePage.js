@@ -1,5 +1,6 @@
-import React                from 'react';
-import { useNavigate }      from 'react-router-dom';
+import { React, 
+         useEffect }   from 'react'
+import { useNavigate, useLocation }      from 'react-router-dom'
 import { useToDos }         from '../useToDos'
 import { ToDoItem }         from '../../ui/ToDoItem'
 import { ToDoCounter }      from '../../ui/ToDoCounter'
@@ -11,10 +12,11 @@ import { ToDosError }       from '../../ui/ToDosError'
 import { ToDosEmpty }       from '../../ui/ToDosEmpty'
 import { ToDosEmptySearch } from '../../ui/ToDosEmptySearch'
 import { CreateToDoButton } from '../../ui/CreateToDoButton'
-import { ChangeAlert }      from '../../ui/ChangeAlert'  
+import { ChangeAlert }      from '../../ui/ChangeAlert'
 
 function HomePage() {
   const navigate = useNavigate()
+  const location = useLocation();
 
   const { 
     state, 
@@ -36,6 +38,19 @@ function HomePage() {
     setToDoSearch,
     sincronizeToDos
   } = stateUpdaters
+  
+   // Usa useEffect para que cuando haya un cambio en location.search o en el actializador del toDoSearch se revisen ambos y que actualice el searchText. 
+
+  useEffect(() => { 
+      const params = new URLSearchParams( location.search );
+      const searchText = params.get( 'search' ) || '';
+      setToDoSearch( searchText );
+  }, [location.search, setToDoSearch]);
+
+  function handleSearchChange(searchText){
+    setToDoSearch(searchText)
+    navigate(`/?search=${searchText}`)
+  }
 
   return ( 
     <>
@@ -45,7 +60,9 @@ function HomePage() {
               fraseCounter={fraseCounter}/>
           <ToDoSearch 
               toDoSearch={toDoSearch} 
-              setToDoSearch={setToDoSearch} />
+              handleSearchChange={handleSearchChange} 
+              loading={loading}
+          /> 
       </ToDoHeader>
     
       {/*lista de ToDo's y todas sus exepciones*/}

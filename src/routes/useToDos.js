@@ -40,13 +40,14 @@ function useToDos() {
       saveToDos(listaToDosActualizada)
     }
 
-    function editToDo (id, newText)  { // Edita el contenido de cada ToDo para ser actualizado
-      console.log('id, newText',id, newText)
+    function getToDo (id) {
+      const todoIndex = listaToDos.findIndex(todo => todo.id === id);
+      return listaToDos[todoIndex];
+    }
+
+    function editToDo (id, newText)  { // Actualiza toDo cuyo id=id con text = newText
       const index = listaToDos.findIndex( (toDo) => toDo.id === id)
-      console.log('index',index)
       const listaToDosActualizada = [...listaToDos]
-      console.log('listaToDosActualizada',listaToDosActualizada)
-     
       listaToDosActualizada[index].text = newText;
       saveToDos(listaToDosActualizada)
     }
@@ -72,6 +73,7 @@ function useToDos() {
       totales,
       fraseCounter,
       toDoSearch,
+      getToDo,
     }
     const stateUpdaters = {
       addToDo,

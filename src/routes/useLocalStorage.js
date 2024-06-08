@@ -37,8 +37,8 @@ function useLocalStorage(itemName,initialValue){ //itemName = 'ToDos_V2', initia
       catch(error) {
           onError(error)
       }
-    }, 3000)
-  }, [sincronizeItem])
+    }, 2000)
+  }, [sincronizedItem])
 
   function saveItem(newItem) { //Agrega nuevo item a Local Storage
     try {
@@ -62,7 +62,7 @@ function useLocalStorage(itemName,initialValue){ //itemName = 'ToDos_V2', initia
   }
 }
 const  initialState = ({ initialValue }) => ({ //Si se hace como function: Se necesita usar return para devolver el objeto
-  sincronizeItem: true,
+  sincronizedItem: true,
   loading: true,
   error: false,
   item: initialValue,
@@ -84,7 +84,7 @@ const reducerObject = (state, payload) => ({
     ...state,
     error: false, //logicamente
     loading: false, //ya terminamos de cargar
-    sincronizeItem: true,
+    sincronizedItem: true,
     item: payload, 
   },
   [actionTypes.save]: {
@@ -93,7 +93,7 @@ const reducerObject = (state, payload) => ({
   },
   [actionTypes.sincronize]: {
     ...state,
-    sincronizeItem: false,
+    sincronizedItem: false,
     loading: true, //para simular estado de carga mientras se hace sincronizacion
   },
 })
